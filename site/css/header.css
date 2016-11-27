@@ -1,0 +1,178 @@
+.top {
+    font-size: 11px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1002;
+	background-color: #413c35;
+	height:30px;
+}
+
+	
+.container {
+    width: 1313px;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#header .header-logo {
+    float: left;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    top: -5px;
+    width: 220px;
+}
+
+
+.navbar-default{
+
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    float: left;
+    font-weight: bold;
+    margin: 0;
+    min-height: 0;
+    position: relative;
+    text-transform: uppercase;
+    top: 68px;
+	left:80px;
+
+}
+
+
+.navbar-default ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar-default li {
+    float: left;
+	margin-right: 30px;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.header-cart {
+
+    border-left: 2px solid grey;
+    float: left;
+    left: 300px;
+    position: relative;
+    top: 68px;
+
+}
+
+.header-cart-text-price{
+
+position:relative;
+left:10px;
+
+}
+
+.header-cart-items{
+
+position:relative;
+left:10px;
+
+}
+
+.header-cart-items{
+    border: 2px solid #71a866!important;
+    border-radius: 40%;
+    height: 18px;
+    left: 34%;
+    margin-left: -9px;
+    top: -2px;
+    width: 18px;
+}
+
+.header-cart-items {
+    background: url("../imagini/pattern_dark.png");
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 3px 3px 8px 8px;
+	width:100px;
+	height:100px;
+	background-color: #71a866;
+}
+
+.header-cart-items-num{
+
+color:#000;
+
+}
+
+
+.unslider-nav{
+
+	height: 20px;
+    margin: -20px auto 0;
+    position: relative;
+    text-align: center;
+    width: 150px;
+    z-index: 9999;
+
+}
+
+li a .slider-container {
+    display: block;
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+.slider{
+
+    position: relative;
+    top: -70px;
+}
+
+#header {
+    height:220px;
+    position: relative;
+    z-index: 1001;
+}
+	
+#header>a>img {
+	display: block;
+	float: left;
+	padding-left: 40px;
+	padding-top: 15px;
+}
+
+
+#header>h1{
+	font-size: 30px;
+	display: block;
+	padding-top: 90px;
+	padding-left: 50px;
+	font-family: Lucida Handwriting;
+	float:left;
+}
+
+#cauta {
+	float: left;
+	padding-top: 150px;
+	padding-left: 50px;
+}

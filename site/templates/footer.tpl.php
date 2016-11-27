@@ -1,0 +1,1 @@
+<div id="footer">Copyright &copy; Invata-Online.ro - laptops web application</div>
