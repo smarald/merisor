@@ -8,8 +8,6 @@ Proiectul Laptops
 
 
 class ProductsForm extends MyForm {
-  
-  
   function __construct()
   {
     parent::__construct('products', 'post');
@@ -22,20 +20,15 @@ class ProductsForm extends MyForm {
 
   }
 
-
-
   function validate($action='')
   {
     global $site;
-
 
     if (empty($this->formData["productName"])) 
 	$this->errors["productName"] = 'Completeaza numele produsului';
 
     if (empty($this->formData["price"])) 
 	$this->errors["price"] = 'Completeaza pretul produsului';
-
-
 
     $upload = new MyUpload($site["fs_products"]);
 
@@ -63,14 +56,6 @@ class ProductsForm extends MyForm {
 	if (empty($this->formData["picLarge"])) unset($this->formData["picLarge"]);
 
     }
-
-
-
   } /// validate();
-
-
-
 }
-
-
 ?>

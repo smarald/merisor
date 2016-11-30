@@ -11,10 +11,8 @@ class Workshops extends MyTable {
   
   function __construct()
   {
-    return parent::__construct('products');
+    return parent::__construct('workshops');
   }
-
-
 
   function fetchList()
   {
@@ -22,7 +20,6 @@ class Workshops extends MyTable {
 
     return $d;
   }
-
 
   function delete($workshopId)
   {

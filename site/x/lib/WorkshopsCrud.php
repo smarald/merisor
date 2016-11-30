@@ -8,13 +8,8 @@ Proiectul Laptops
 
 
 class WorkshopsCrud extends MyCrud {
-
-
-
     function prepareForDisplay($data)
     {
-        global $site;
-
         if (empty($data)) return;
 
         foreach ($data as $d => &$row) {
@@ -27,11 +22,7 @@ class WorkshopsCrud extends MyCrud {
         } /// outer foreach
 
         return $data;
-
-
     } /// prepare...
-
-
 }
 
 ?>

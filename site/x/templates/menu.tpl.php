@@ -27,6 +27,12 @@ $menu = array (
 		      ),
 
 
+	       array (
+		      'label' => 'Workshops',
+		      'lk' => 'workshops.php',
+		      ),
+
+
 
 	       array (
 		      'label' => 'Logout',

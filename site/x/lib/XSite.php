@@ -6,16 +6,12 @@ Proiectul Laptops
 
 */
 
-
-
 class XSite extends FrontSite {
   private $skipAuth = false;
-
   function start()
   {
     parent::start();
   }
-
 
   function checkLogin()
   {
@@ -24,7 +20,6 @@ class XSite extends FrontSite {
 
     $this->authorize();
   }
-
 
   function skipAuth($b = false)
   {
@@ -36,7 +31,6 @@ class XSite extends FrontSite {
     return $this->skipAuth;
   }
 
-
   function authorize()
   {
     if (empty($this->login)) throw new MyErrorException('No login object for authorize in site class');
@@ -45,10 +39,5 @@ class XSite extends FrontSite {
 
     return $this->login->authorize();
   }
-
-
-
 }
-
-
 ?>

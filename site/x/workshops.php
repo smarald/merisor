@@ -7,23 +7,21 @@ Proiectul Laptops
 */
 
 include("../lib/start.php");
+if( ! ini_get('date.timezone') )
+{
+    date_default_timezone_set('GMT');
+}
 $site->start();
 
 $table = new Workshops();
-
 $form = new WorkshopsForm();
 $form->setTable($table);
 
 $crud = new WorkshopsCrud($form);
-$sql = 'select count(wa.catName) as number_attendees, w.*
-from 
-workshops w
-inner join workshop_attend as wa on w.workshopId = wa.workshopId
-order by productName asc';
+$sql = 'select w.* from workshops as w where 1';
 $crud->setDisplaySql($sql);
-$crud->setDisplayCols(array('workshopName', 'workshopDesc', 'workshopLocation', 'price', 'data', 'number_attendees'));
+$crud->setDisplayCols(array('workshopId', 'workshopName', 'workshopLocation', 'price','workshopDesc', 'date'));
 $crud->go();
-
 
 $p = new XPage($site);
 echo $p->output($crud->getTemplate(), $crud->getTemplateVars());

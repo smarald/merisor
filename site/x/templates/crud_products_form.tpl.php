@@ -15,10 +15,6 @@
   <td><?php echo  $form->text('price'); ?></td>
 </tr>
 <tr>
-  <td>Culoare</td>
-  <td><?php echo  $form->select('color'); ?></td>
-</tr>
-<tr>
   <td>Descriere</td>
   <td><?php echo  $form->textarea('productDesc', 80, 20); ?></td>
 </tr>

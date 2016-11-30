@@ -6,7 +6,6 @@ Proiectul Laptops
 
 */
 
-
 class MyCrud {
   
   public $form;  
@@ -20,7 +19,7 @@ class MyCrud {
 
   private $formMethod;
   private $formData;
-  private $actions = array('display', 'delete', 'insert', 'update');
+  private $actions = array('display', 'delete', 'insert', 'update', 'attendees');
 
   private $action;
 
@@ -28,10 +27,8 @@ class MyCrud {
 
   private $processed;
 
-
   function __construct($form, $formMethod = 'post')
   {
-
     $this->form = $form;
     if (!isset($this->form->table)) throw new MyErrorException('The form must have a table');
     $this->table = $this->form->table;
@@ -39,7 +36,6 @@ class MyCrud {
     $this->formMethod = $this->formMethod;
 
     $this->setTemplates();
-
 
     if (isset($_GET["action"])) $req = $_GET;
     elseif (isset($_POST["action"])) $req = $_POST;
@@ -52,13 +48,13 @@ class MyCrud {
 
   }
 
-
   function setTemplates($templates = null)
   {
     if (empty($templates)) {
       $templates = array(
 			 'delete' => '',
 			 'display' => 'crud_display.tpl.php',
+			 'attendees' => 'crud_attendees_display.tpl.php',
 			 'update' => 'crud_'.$this->tableName.'_form.tpl.php',
 			 'insert' => 'crud_'.$this->tableName.'_form.tpl.php',
 			 );
@@ -71,7 +67,6 @@ class MyCrud {
   {
     return $this->templates;
   }
-
 
   function go()
   {
@@ -87,12 +82,13 @@ class MyCrud {
       $this->delete();
     } elseif ($this->action == 'display') {
       $this->display();
+    } elseif ($this->action == 'attendees') {
+      $this->attendees();
     }
 
     $this->template = $this->templates[$this->action];
 
     } /// go
-
 
   function setDisplaySql($sql)
   {
@@ -106,7 +102,6 @@ class MyCrud {
     }
 
     return $this->displaySql;
-
   }
 
   function prepareForDisplay($displayData)
@@ -139,9 +134,9 @@ class MyCrud {
     foreach ($displayData as $i => $d) {
       foreach ($d as $col => $value) {
 
-	if ($col == $pkName) $pkValues[$i] = $d[$pkName];
+	    if ($col == $pkName) $pkValues[$i] = $d[$pkName];
 
-	if (!in_array($col, $displayCols)) unset($bk_displayData[$i][$col]);
+	    if (!in_array($col, $displayCols)) unset($bk_displayData[$i][$col]);
 
       } /// inner foreach
     } /// outer foreach
@@ -152,11 +147,32 @@ class MyCrud {
 
   }
 
+  function attendees()
+  {
+    $table = $this->table;
+
+    $sql = 'select * from workshop_attend WHERE workshopId = ' . $this->fetchPkValue() ;
+    $displayData = $table->fetchAll($sql);
+
+    if (empty($displayData)) {
+      $this->addTemplateVar('displayData', null);
+      return;
+    }
+
+    $displayData = $this->prepareForDisplay($displayData);
+    $headData = array_keys($displayData[0]);
+
+    $this->addTemplateVar('headData', $headData);
+    unset($d);
+
+    $this->addTemplateVar('insertPage', $this->getPage('insert'));
+    $this->addTemplateVar('displayData', $displayData);
+
+  }
 
   function display()
   {
     $table = $this->table;
-
 
     $sql = $this->getDisplaySql($table->tableName);
     $displayData = $table->fetchAll($sql);
@@ -167,29 +183,28 @@ class MyCrud {
 	  return;
     }
 
-
     $pkName = $table->getPkName();
 
     $displayData = $this->prepareForDisplay($displayData);
     $displayData = $this->updateByDisplayCols($displayData);
-
 
     foreach ($displayData as $i => &$d) {
 
       $pkValue = $this->pkValues[$i];
       $d["editLk"] = addParam($this->getPage('update'), $pkName, $pkValue);
       $d["deleteLk"] = addParam($this->getPage('delete'), $pkName, $pkValue);
+      if(array_key_exists('workshopId', $displayData[0])){
+        $d["attendeesLk"] = addParam($this->getPage('attendees'), $pkName, $pkValue);
+      }
     }
 
     $headData = array_keys($displayData[0]);
 
     foreach ($headData as &$v) {
-      if ($v == 'editLk' or $v == 'deleteLk') $v = '';
+      if ($v == 'editLk' or $v == 'deleteLk' or $v == 'attendeesLk') $v = '';
     }
 
     $this->addTemplateVar('headData', $headData);
-
-
     unset($d);
 
     $this->addTemplateVar('insertPage', $this->getPage('insert'));
@@ -203,7 +218,6 @@ class MyCrud {
     redirect($this->getPage('display'));
   }
 
-
     function setForm($form)
     {
       $this->form = $form;
@@ -214,13 +228,10 @@ class MyCrud {
       return 'MyForm';
     }
 
-
     function getForm()
     {
       return $this->form;
     }
-
-
 
     function buildForm($for)
     {
@@ -238,14 +249,12 @@ class MyCrud {
 
     }
 
-
   function prepareFormForUpdate($pkValue)
   {
 
     if (isset($pkValue)) {
       $this->form->hidden($this->getPkName(), $pkValue);      
       $this->formData[$this->getPkName()] = $pkValue;
-
 
       if (!$this->form->pushed()) {
 	// get data from database, and update formData

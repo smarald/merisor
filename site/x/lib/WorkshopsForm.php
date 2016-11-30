@@ -8,8 +8,6 @@ Proiectul Laptops
 
 
 class WorkshopsForm extends MyForm {
-  
-  
   function __construct()
   {
     parent::__construct('workshops', 'post');
@@ -17,21 +15,16 @@ class WorkshopsForm extends MyForm {
 
   }
 
-
-
   function validate($action='')
   {
-    global $site;
-
-
     if (empty($this->formData["workshopName"]))
 	$this->errors["workshopName"] = 'Completeaza numele workshop-ului';
 
     if (empty($this->formData["workshopLocation"]))
 	$this->errors["workshopLocation"] = 'Completeaza locatia workshop-ului';
 
-    if (empty($this->formData["workshopDescription"]))
-	$this->errors["workshopDescription"] = 'Completeaza descrierea workshop-ului';
+    if (empty($this->formData["workshopDesc"]))
+	$this->errors["workshopDesc"] = 'Completeaza descrierea workshop-ului';
 
     if (empty($this->formData["price"])) 
 	$this->errors["price"] = 'Completeaza pretul workshop-ului';
@@ -41,6 +34,4 @@ class WorkshopsForm extends MyForm {
 
   } /// validate();
 }
-
-
 ?>

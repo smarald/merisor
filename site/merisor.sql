@@ -145,7 +145,7 @@ CREATE TABLE `workshops` (
   `workshopLocation` varchar(255) NOT NULL default '',
   `price` decimal(10,2) NOT NULL default '0.00',
   `workshopDesc` text NOT NULL,
-  `date` datetime NOT NULL,
+  `date` text NOT NULL,
   PRIMARY KEY  (`workshopId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
