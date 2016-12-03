@@ -8,6 +8,10 @@ Proiectul Laptops
 
 include("lib/start.php");
 $site->start();
+if( ! ini_get('date.timezone') )
+{
+  date_default_timezone_set('GMT');
+}
 
 $oProduct = new Workshops();
 $vars['data'] = $oProduct->fetch($_GET["workshopId"]);

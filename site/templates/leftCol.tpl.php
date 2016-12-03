@@ -14,9 +14,9 @@ function hasCart()
 <div class="box">
   <?php if (!$isLogged) {  ?>
 <?php echo  $form->begin(); ?>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table border="0" cellspacing="0" width="100%">
 <tr>
-	<td colspan="2"><br /><?php echo  $error ?></td>
+	<td ><br /><?php echo  $error ?></td>
 </tr>
 <tr>
   <td>Utilizator: </td>
@@ -27,10 +27,10 @@ function hasCart()
   <td><?php echo  $form->password('pass', ' class="loginInput" ') ?></td>
 </tr>
 <tr>
-<td colspan="2" align="center"><input type="submit" name="btnSubmit" value="Login" class="button"></td>
+<td align="center"><input type="submit" name="btnSubmit" value="Login" class="button"></td>
 </tr>
 <tr>
-<td colspan="2" align="right"><br /><br />
+<td align="right"><br /><br />
 <a href="register.php">Inregistreaza-te</a>
 </td>
 </tr>
@@ -44,7 +44,7 @@ function hasCart()
 
 <?php if ($countOp) {  ?>
 
-<a href="orderView.php">Comanda curenta (<?php echo  $countOp ?>)</a> | 
+<a href="orderView.php">Comanda curenta (<?php echo  $countOp ?>)</a> |
 
 <?php }  ?>
 
@@ -76,13 +76,5 @@ Nu exista categorii definite.
 <?php }  ?>
 
 </div>
-
-<br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br />
-
 
 </div>
