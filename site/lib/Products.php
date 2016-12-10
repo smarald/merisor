@@ -14,12 +14,16 @@ class Products extends MyTable {
     return parent::__construct('products');
   }
 
+  function fetchProducts()
+  {
+    $d = $this->fetchAll('select * from products where 1 ');
 
+    return $d;
+  }
 
   function fetchList($catId)
   {
     $catId = (int)($catId);
-
 
     $d = $this->fetchAll('select * from products where catId = '.$catId);
 
@@ -57,14 +61,6 @@ class Products extends MyTable {
     parent::delete($productId);
   }
 
-
-
-
 } /// class Products
-
-
-
-
-
 
 ?>

@@ -8,12 +8,12 @@ $menu = array (
 
 	       array (
 		      'label' => 'Produse',
-		      'lk' => 'product.php',
+		      'lk' => 'products.php',
 		      ),
 
 	       array (
 		      'label' => 'Workshops',
-		      'lk' => 'workshop.php',
+		      'lk' => 'workshops.php',
 		      ),
 
 	       array (
