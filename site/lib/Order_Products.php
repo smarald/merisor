@@ -25,9 +25,9 @@ class Order_Products extends MyTable {
     self::$db->query($sql);
   }
 
-  function computeValue($price, $qty)
+  function computeValue($price, $quantity)
   {
-    $x = $price * $qty;
+    $x = $price * $quantity;
     $x = round($x, 2);
     return $x;
   }
@@ -39,10 +39,10 @@ class Order_Products extends MyTable {
     $totals = array('vat' => 0, 'value' => '0', 'total' => 0);
 
     while ($d = $res->fetch_assoc()) {
-      $opId = $d["opId"];
+      $opId = $d["orderId"];
 
       $opData[$opId] = $d;
-      $opData[$opId]["value"] = $value = $this->computeValue($d["price"], $d["qty"]);
+      $opData[$opId]["value"] = $value = $this->computeValue($d["price"], $d["quantity"]);
 
       if ($this->order->hasVat()) {
 	$opData[$opId]["vatValue"] = $vatValue = $this->order->getVatFrom($value);

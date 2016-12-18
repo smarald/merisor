@@ -11,10 +11,7 @@ if (empty($data))   {
     <tr>
         <td></td>
         <td>Nume</td>
-        <td>Descriere</td>
-        <td>Locatie</td>
         <td>Pret</td>
-        <td>Data</td>
         <td></td>
     </tr>
     </thead>
@@ -28,19 +25,10 @@ if (empty($data))   {
                 <div class="workshopName"><?=$workshop["workshopName"]?></div>
             </td>
             <td>
-                <div class="workshopDesc"><?=nl2br($workshop["workshopDesc"])?></div>
-            </td>
-            <td>
-                <div class="workshopLocation"><?=$workshop["workshopLocation"]?></div>
-            </td>
-            <td>
                 <div class="workshopPrice"><?=$workshop["price"]?></div>
             </td>
             <td>
-                <div class="workshopDate"><?=$workshop["date"]?></div>
-            </td>
-            <td>
-                <a href="">Participa</a>
+                <a href="workshop.php?workshopId=<?= $workshop["workshopId"] ?>">Detalii</a>
             </td>
         </tr>
     <?php endforeach ?>

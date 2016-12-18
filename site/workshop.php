@@ -13,11 +13,11 @@ if( ! ini_get('date.timezone') )
   date_default_timezone_set('GMT');
 }
 
-$oProduct = new Workshops();
-$vars['data'] = $oProduct->fetch($_GET["workshopId"]);
+$workshop = new Workshops();
+$vars['data'] = $workshop->fetch($_GET["workshopId"]);
 
 try {
-$form = new QtyForm();
+$form = new ParticipateForm();
 $form->make();
 } catch (MyErrorException $e) {
   $form->errors['other'] = $e->getMessage();

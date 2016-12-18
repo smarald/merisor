@@ -17,15 +17,15 @@
             </ul>
         </div>-->
 
-        <div class="header-cart">
+        <!--<div class="header-cart">
 					<span class="header-cart-text-price">
 						<span class="header-cart-text">Cos cumparaturi</span>
 						<span class="amount">0.00 lei</span>
 					</span>
-            <!-- <a class="header-cart-items" href="https://demo.proteusthemes.com/organique/cart/">
+             <a class="header-cart-items" href="https://demo.proteusthemes.com/organique/cart/">
                 <span class="header-cart-items-num">0</span>
-            </a> -->
-        </div>
+            </a>
+        </div>-->
     </div>
 </div>
 <!-- Slider imagini -->

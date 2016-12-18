@@ -24,7 +24,6 @@ if (empty($data))   {
 
 ?>
    </td>
-   <td width="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td valign="top" align="left">
    <div class="productName"><?=$d["productName"]?></div> <br /><br />
    <div class="productDesc"><?=nl2br($d["productDesc"])?></div>

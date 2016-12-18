@@ -24,7 +24,7 @@ abstract class MyLogin {
 
   function __construct($name, $seconds = 0, $path = "/", $savePath = '')
   {
-    $this->mainVar = $this->getMainVar();
+    $_SESSION['uid'] = $this->mainVar = $this->getMainVar();
 
     $this->name = $name;
     $this->seconds = $seconds;

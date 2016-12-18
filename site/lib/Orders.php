@@ -13,6 +13,7 @@ class Orders extends MyTable {
   private $orderId;
   private $login;
   private $orderProduct;
+  private $participateWorkshop;
   
 
   function __construct($login = null)
@@ -25,6 +26,7 @@ class Orders extends MyTable {
     }
 
     $this->orderProduct = new Order_Products($this);
+    $this->participateWorkshop = new Participate_Workshop($this);
     $this->login = $login;
 
   }
@@ -108,6 +110,13 @@ class Orders extends MyTable {
   function addOp($formData)
   {
     $this->orderProduct->add($formData['productId'], $formData['qty']);
+  }
+
+  function participateWorkshop($formData)
+  {
+    $userId = $_SESSION['uid'];
+    $workshopId = $formData['workshopId'];
+    $this->participateWorkshop->add($userId, $workshopId);
   }
 
   function checkLogin($login)
