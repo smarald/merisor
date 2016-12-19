@@ -119,7 +119,6 @@ class Order_Products extends MyTable {
     // qty
     $qty = (int)($qty);
 
-
     // productId
     $productId = (int)($productId);
 
@@ -139,7 +138,7 @@ class Order_Products extends MyTable {
     $product = new Products();
     $productData = $product->fetch($productId, 'price');
     $price = $productData["price"];
-
+var_dump($price);die;
     $data = array (
 		   'orderId' => $orderId,
 		   'productId' => $productId,

@@ -35,9 +35,10 @@ if (empty($data))   {
         <?php
         echo '<div style="float: left;">' . $form->outputErrors() . '</div><br style="clear:both" />';
 
-        echo '<div class="labelQty">Participa</div>';
-        echo   $form->buttonImage('addToCart', 'img/add-to-cart.gif', ' class="addToCart" ');
-
+        if(isset($_SESSION['uid'])) {
+            echo '<div class="labelQty">Participa</div>';
+            echo   $form->buttonImage('addToCart', 'img/add-to-cart.gif', ' class="addToCart" ');
+        }
         ?>
     </td>
 </tr>

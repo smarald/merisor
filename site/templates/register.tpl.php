@@ -39,45 +39,9 @@ switch ($step) {
    $s .= myFormRow('Nume', 'lastName');
    $s .= myFormRow('Telefon', 'phone');
    $s .= myFormRow('Email', 'email');
-
-   $s .= '<tr>';
-   $s .= '<td>Forma juridica</td>';
-   $s .= '<td nowrap = "nowrap">' . 
-                    '<div class="labelJuridic">Persoana fizica</div> ' . $form->radio('billingType', 'pf') . ' <br /> ' .
-                    '<div class="labelJuridic">Persoana juridica</div>' . $form->radio('billingType', 'pj') . 
-             '</td>';
-   $s .= '<td>' . $form->outputError('billingType') . '</td>';
-   $s .= '</tr>';
-
-
-   break;
-
- case 2:
-
-   $s .= myFormRow('Prenume (facturare)', 'bFirstName');
-   $s .= myFormRow('Nume (facturare)', 'bLastName');
-   $s .= myFormRow('Cnp', 'cnp');
    $s .= myFormRow('Adresa', 'address');
    $s .= myFormRow('Oras', 'city');
    $s .= myFormRow('Judet', 'county');
-
-   break;
-
-
- case 3:
-
-   $s .= myFormRow('Nume firma', 'companyName');
-   $s .= myFormRow('Nr inregistrare (J)', 'regNumber');
-   $s .= myFormRow('Cod fiscal', 'fiscalCode');
-   $s .= myFormRow('Banca', 'bank');
-   $s .= myFormRow('Sucursala', 'bankBranch');
-   $s .= myFormRow('IBAN', 'iban');
-   $s .= myFormRow('Adresa', 'address');
-   $s .= myFormRow('Oras', 'city');
-   $s .= myFormRow('Judet', 'county');
-
-
-
 
    break;
 

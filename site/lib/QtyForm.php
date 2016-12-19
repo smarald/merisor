@@ -32,8 +32,6 @@ class QtyForm extends MyForm {
 
   }
 
-
-
   function validate()
   {
     $qty = (int)($this->formData["qty"]);

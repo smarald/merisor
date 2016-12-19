@@ -16,12 +16,12 @@ if (empty($data))   {
    <td width="1" align="center"><img class="imgLarge" src="products/<?=$d["picLarge"]?>" border="0">
    <br /><br />
 <?php 
-   echo '<div style="float: left;">' . $form->outputErrors() . '</div><br style="clear:both" />';
-
-  echo '<div class="labelQty">Cantitate</div>';
-  echo  $form->text('qty', ' class="qtyInput" ', 1); 
-  echo   $form->buttonImage('addToCart', 'img/add-to-cart.gif', ' class="addToCart" ');
-
+    echo '<div style="float: left;">' . $form->outputErrors() . '</div><br style="clear:both" />';
+    if(isset($_SESSION['uid'])) {
+        echo '<div class="labelQty">Cantitate</div>';
+        echo $form->text('qty', ' class="qtyInput" ', 1);
+        echo $form->buttonImage('addToCart', 'img/add-to-cart.gif', ' class="addToCart" ');
+    }
 ?>
    </td>
    <td valign="top" align="left">
