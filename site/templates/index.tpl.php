@@ -1,33 +1,6 @@
 <body>
-<div class="top">
-</div>
 <!-- Header propriu-zis cu meniu cu tot -->
-<div id="header">
-    <div class="container">
-        <div class="header-logo" style="float: right;">
-            <a href="<?php echo 'index.php'?>"><img src="imagini/logo-merisor-small.png" alt="Merisor" title="Dulceturi Merisor" /></a>
-        </div>
-        <!--<div class="navbar-default">
-            <ul>
-                <li><a class="active" href="./index.html">Home</a></li>
-                <li><a href="./desprenoi.html">Despre Noi</a></li>
-                <li><a href="./produse.html">Produse</a></li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </div>-->
 
-        <!--<div class="header-cart">
-					<span class="header-cart-text-price">
-						<span class="header-cart-text">Cos cumparaturi</span>
-						<span class="amount">0.00 lei</span>
-					</span>
-             <a class="header-cart-items" href="https://demo.proteusthemes.com/organique/cart/">
-                <span class="header-cart-items-num">0</span>
-            </a>
-        </div>-->
-    </div>
-</div>
 <!-- Slider imagini -->
 <div class="slider">
     <div class="my-slider">

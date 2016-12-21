@@ -46,6 +46,25 @@ $menuLogout = array(
 				)
 			);
 
+$menuProducts = array (
+				array(
+					'label' => 'Traditionale',
+					'lk' => 'products.php?cat=1',
+				),
+				array(
+					'label' => 'Indraznete',
+					'lk' => 'products.php?cat=2',
+				),
+				array(
+					'label' => 'Lejere',
+					'lk' => 'products.php?cat=3',
+				),
+				array(
+					'label' => 'Din alta poveste',
+					'lk' => 'products.php?cat=4',
+				),
+);
+
 
 if (!$isLogged)   $menu = array_merge($menu, $menuRegister);
 if ($isLogged)   $menu = array_merge($menu, $menuLogout);
@@ -58,8 +77,20 @@ if ($isLogged)   $menu = array_merge($menu, $menuLogout);
     if ($m["lk"] == 'register.php') $sy = ' style="float:left;font-weight: bold;" ';
     else $sy = ' style="float: right" ' ;
 ?>
+	<?php if($m["lk"] == 'products.php'):?>
+		<li>
+			<a class="lkMenu" href="<?php echo $m["lk"]?>"><?php echo $m["label"]?></a>
+			<ul class="dropdown">
+			<?php foreach ($menuProducts as $menuProduct) {?>
+				<li>
+					<a class="lkMenu" href="<?php echo $menuProduct["lk"]?>"><?php echo $menuProduct["label"]?></a>
+				</li>
+			<?php } ?>
+			</ul>
+		</li>
+	<?php else: ?>
 		<li><a class="lkMenu" <?php echo  $sy ?> href="<?php echo $m["lk"]?>"><?php echo $m["label"]?></a> </li>
-
+	<?php endif ?>
 <?php }  ?>
 	</ul>
 <br style="clear:both" />

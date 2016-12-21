@@ -14,7 +14,14 @@ if( ! ini_get('date.timezone') )
 }
 
 $oProduct = new Products();
-$vars['data'] = $oProduct->fetchProducts();
+
+if(isset($_GET["cat"])) {
+  $catId = (int)$_GET["cat"];
+  $vars['data'] = $oProduct->fetchList($catId);
+} else {
+  $vars['data'] = $oProduct->fetchProducts();
+}
+
 
 $p = new MainPage($site, 'Pagina produse');
 echo $p->output('products.tpl.php', $vars)
