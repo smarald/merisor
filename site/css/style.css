@@ -24,6 +24,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+#main tr td {
+    padding: 2%;
+}
+
 a{
 
 text-decoration:none;
@@ -264,7 +268,7 @@ ul li{
 }
 ul li a{
     display: block;
-    padding: 8px 25px;
+    padding: 8px 30px;
     color: #333;
     text-decoration: none;
 }

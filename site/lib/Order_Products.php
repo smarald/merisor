@@ -122,10 +122,10 @@ class Order_Products extends MyTable {
     // productId
     $productId = (int)($productId);
 
-    // orderId
-    $orderId = $this->order->getOrderId();
+      // orderId
+      $orderId = $this->order->getOrderId();
 
-    $count = $this->countRows('productId = ' . $productId.' AND orderId = '.$orderId);
+    $count = $this->countRows('productId = ' . $productId.' AND orderID = '.$orderId);
 
     if ($count > 0) {
       $this->updateQty($orderId, $productId, $qty);
@@ -133,17 +133,16 @@ class Order_Products extends MyTable {
     }
 
     if ($qty < 1 or $qty > 99) $qty = 1;
+// price
+      $product = new Products();
+      $productData = $product->fetch($productId, 'price');
+      $price = $productData["price"];
 
-    // price
-    $product = new Products();
-    $productData = $product->fetch($productId, 'price');
-    $price = $productData["price"];
-var_dump($price);die;
     $data = array (
-		   'orderId' => $orderId,
+           'orderId' => $orderId,
 		   'productId' => $productId,
-		   'price' => $price,
-		   'qty' => $qty,
+		   'quantity' => $qty,
+           'price' => $price,
 		   );
 
     $this->doData($data);

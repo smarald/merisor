@@ -1,7 +1,6 @@
 <body>
-<!-- Header propriu-zis cu meniu cu tot -->
-
 <!-- Slider imagini -->
+
 <div class="slider">
     <div class="my-slider">
         <ul>

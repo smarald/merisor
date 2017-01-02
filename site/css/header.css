@@ -65,12 +65,9 @@ li a {
 
 
 .header-cart {
-
     border-left: 2px solid grey;
-    float: left;
     position: relative;
     top: 68px;
-
 }
 
 .header-cart-text-price{
