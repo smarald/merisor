@@ -34,7 +34,7 @@ class Order_Products extends MyTable {
 
   function getOpData($orderId)
   {
-    $sql = 'select op.*, p.productName from order_products as op inner join products p ON op.productId = p.productId where orderId = '.$orderId;
+    $sql = 'select op.*, p.* from order_products as op inner join products p ON op.productId = p.productId where orderId = '.$orderId;
     $res = self::$db->query($sql);
     $totals = array('vat' => 0, 'value' => '0', 'total' => 0);
 
@@ -42,7 +42,7 @@ class Order_Products extends MyTable {
       $opId = $d["orderId"];
 
       $opData[$opId] = $d;
-      $opData[$opId]["value"] = $value = $this->computeValue($d["price"], $d["quantity"]);
+      $opData[$opId]["value"] = $value = $this->computeValue($d["price"], $d["qty"]);
 
       if ($this->order->hasVat()) {
 	$opData[$opId]["vatValue"] = $vatValue = $this->order->getVatFrom($value);

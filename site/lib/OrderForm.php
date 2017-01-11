@@ -30,7 +30,7 @@ class OrderForm extends MyForm {
   function loadData($odata)
   {
     foreach ($odata["opData"] as $op) {
-      $f["quantity"][$op["productId"]] = $op["quantity"];
+      $f["quantity"][$op["productId"]] = $op["qty"];
     }
     $this->setFormData($f);
   }

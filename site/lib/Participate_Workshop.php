@@ -23,6 +23,7 @@ class Participate_Workshop extends MyTable {
 		   );
 
     $this->doData($data);
+      redirect('workshops.php');
   }
 
 
